@@ -164,3 +164,7 @@ input {
 i {
     cursor: pointer;
 }
+
+input:focus {
+    outline: 0;
+}

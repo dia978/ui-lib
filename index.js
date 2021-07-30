@@ -120,13 +120,13 @@ function addBookToTable(data) {
   cell3.innerHTML = data.copies;
   var cell4 = newRecord.insertCell(3);
   cell4.innerHTML =
-    '<a onclick="onBookEdit(this)"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
+    '<a onclick="onBookEdit(this)"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>';
   var cell5 = newRecord.insertCell(4);
   cell5.innerHTML =
     '<a onclick="onBookDel(this)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>';
   var cell6 = newRecord.insertCell(5);
   cell6.innerHTML =
-    '<a onclick="onRequestBook(this)"><i class="fa fa-plus" aria-hidden="true"></i></a>';
+    '<a onclick="onRequestBook(this)"><i class="fa fa-book" aria-hidden="true"></i></a>';
 }
 
 function onBookEdit(td) {
@@ -182,7 +182,7 @@ function addBorrowToTable(data) {
   cell4.innerHTML = data.returndate;
   var cell5 = newRecord.insertCell(4);
   cell5.innerHTML =
-    '<a onclick="onReturnBook(this)"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>';
+    '<a onclick="onReturnBook(this)"><i class="fa fa-window-minimize" aria-hidden="true"></i></a>';
 }
 
 function onReturnBook(td) {

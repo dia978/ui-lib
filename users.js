@@ -112,7 +112,7 @@ function addMemberToTable(data) {
     '<a onclick="onMemberEdit(this)"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
   var cell5 = newRecord.insertCell(4);
   cell5.innerHTML =
-    '<a onclick="viewOne(this)"><i class="fa fa-search" aria-hidden="true"></i></a>';
+    '<a onclick="viewOne(this)"><i class="fa fa-question" aria-hidden="true"></i></a>';
 }
 
 function addByOneToTable(data) {
