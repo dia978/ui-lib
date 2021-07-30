@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Members</title>
+    <title>Library Users</title>
 </head>
 
 <body>
@@ -24,25 +24,25 @@
         <p style="color: red; font-weight: 500; font-size: 16px; background-color: #fff; margin: 0;">Edit Member here</p>
         <input type="text" name="name" placeholder="Your name" id="name" required />
         <input type="email" name="email" placeholder="Your email" id="email" required />
-        <input type="submit" value="Edit Member">
+        <input type="submit" value="Edit User">
     </form>
-    <table id="allmbs">
+    <table id="allmembers">
         <thead>
             <tr>
-                <th>Member ID</th>
+                <th>User ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Edit</th>
-                <th>View Books</th>
+                <th>View Borrowed Books</th>
             </tr>
         </thead>
         <tbody class="tbody"></tbody>
     </table>
-    <table id="allby">
+    <table id="memall">
         <thead>
             <tr>
-                <th>Member ID</th>
-                <th>Title</th>
+                <th>User ID</th>
+                <th>Title Borrowed</th>
                 <th>Return Date</th>
             </tr>
         </thead>

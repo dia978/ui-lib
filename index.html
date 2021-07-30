@@ -44,22 +44,22 @@
         </thead>
         <tbody class="tbody"></tbody>
     </table>
-    <div id="requestbook">
+    <div id="BorrowBook">
         <span onclick="closeForm()" class="close">&times;</span>
-        <form id="reqf" onsubmit="event.preventDefault(); ReqBook();">
+        <form id="reqf" onsubmit="event.preventDefault(); BookRe();">
             <input type="number" name="titleid" placeholder="Title ID" id="titleid" required /> <br>
             <input type="number" name="memberid" placeholder="Your Member ID" id="memberid" required /> <br>
             <input type="submit" value="Borrow Book">
         </form>
     </div>
-    <table id="allbrw">
+    <table id="borrowedbooks">
         <thead>
             <tr>
                 <th>Borrow ID</th>
-                <th>Book Title</th>
-                <th>UserID</th>
+                <th>Title</th>
+                <th>User ID</th>
                 <th>Return Date</th>
-                <th>Return</th>
+                <th>Return Book</th>
             </tr>
         </thead>
         <tbody class="tbody"></tbody>

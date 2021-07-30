@@ -3,7 +3,7 @@ var selectedRecord = null;
 var selectedRecordID = null;
 
 function closeForm() {
-  document.getElementById("requestbook").style.display = "none";
+  document.getElementById("BorrowBook").style.display = "none";
 }
 
 function showAdd() {
@@ -15,13 +15,13 @@ function showAdd() {
 }
 
 function showBorrow() {
-  if (document.getElementById("allbrw").style.display == "block") {
-    document.getElementById("allbrw").style.display = "none";
+  if (document.getElementById("borrowedbooks").style.display == "block") {
+    document.getElementById("borrowedbooks").style.display = "none";
     document.getElementById("allbks").style.display = "block";
     document.getElementById("btn").innerText = "Show Borrowings";
     document.getElementById("bkbtn").style.display = "block";
   } else {
-    document.getElementById("allbrw").style.display = "block";
+    document.getElementById("borrowedbooks").style.display = "block";
     document.getElementById("addbook").style.display = "none";
     document.getElementById("allbks").style.display = "none";
     document.getElementById("btn").innerText = "Show Books";
@@ -57,16 +57,16 @@ function updateBook(data) {
   });
 }
 
-function ReqBook() {
-  document.getElementById("requestbook").style.display = "none";
+function BookRe() {
+  document.getElementById("BorrowBook").style.display = "none";
   var formData = {};
   formData["titleid"] = document.getElementById("titleid").value;
   formData["memberid"] = document.getElementById("memberid").value;
-  RequestBook(formData);
+  BorrowBook(formData);
   clearReqForm();
 }
 
-function RequestBook(data) {
+function BorrowBook(data) {
   var postData = JSON.stringify(data);
   $.ajax({
     type: "POST",
@@ -126,7 +126,7 @@ function addBookToTable(data) {
     '<a onclick="onBookDel(this)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>';
   var cell6 = newRecord.insertCell(5);
   cell6.innerHTML =
-    '<a onclick="onBookReq(this)"><i class="fa fa-plus" aria-hidden="true"></i></a>';
+    '<a onclick="onRequestBook(this)"><i class="fa fa-plus" aria-hidden="true"></i></a>';
 }
 
 function onBookEdit(td) {
@@ -159,18 +159,18 @@ function deleteBook(row) {
   });
 }
 
-function onBookReq(td) {
-  document.getElementById("requestbook").style.display = "block";
+function onRequestBook(td) {
+  document.getElementById("BorrowBook").style.display = "block";
   selectedRecord = td.parentElement.parentElement;
   selectedRecordID = selectedRecord.cells[0].innerHTML;
   document.getElementById("titleid").value = selectedRecord.cells[0].innerHTML;
 }
 
 function addBorrowToTable(data) {
-  var allbrw = document
-    .getElementById("allbrw")
+  var borrowedbooks = document
+    .getElementById("borrowedbooks")
     .getElementsByTagName("tbody")[0];
-  var newRecord = allbrw.insertRow(allbks.length);
+  var newRecord = borrowedbooks.insertRow(allbks.length);
 
   var cell1 = newRecord.insertCell(0);
   cell1.innerHTML = data.borrowid;
@@ -182,10 +182,10 @@ function addBorrowToTable(data) {
   cell4.innerHTML = data.returndate;
   var cell5 = newRecord.insertCell(4);
   cell5.innerHTML =
-    '<a onclick="onBookRet(this)"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>';
+    '<a onclick="onReturnBook(this)"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>';
 }
 
-function onBookRet(td) {
+function onReturnBook(td) {
   selectedRecord = td.parentElement.parentElement;
   selectedRecordID = selectedRecord.cells[0].innerHTML;
   onReturnBook();

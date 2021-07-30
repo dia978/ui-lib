@@ -91,11 +91,11 @@ button:hover {
     background-color: limegreen;
 }
 
-#addbook, #requestbook, #allbrw {
+#addbook, #BorrowBook, #borrowedbooks {
     display: none;
 }
 
-#requestbook {
+#BorrowBook {
     position: fixed;
     z-index: 1;
     padding-top: 100px;
@@ -151,7 +151,7 @@ input {
     display: none;
 }
 
-#allby {
+#memall {
     margin-top: 50px;
     display: none;
 }
@@ -159,4 +159,8 @@ input {
 #auth {
     margin-top: 10%;
     margin-left: 40%;
+}
+
+i {
+    cursor: pointer;
 }

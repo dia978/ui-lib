@@ -70,6 +70,7 @@ function signIn(data) {
       }
     },
     error: function (response) {
+      console.log(response);
       alert("Error");
     },
   });
@@ -99,10 +100,10 @@ function editUser(data) {
 }
 
 function addMemberToTable(data) {
-  var allbks = document
-    .getElementById("allmbs")
+  var memsall = document
+    .getElementById("allmembers")
     .getElementsByTagName("tbody")[0];
-  var newRecord = allbks.insertRow(allbks.length);
+  var newRecord = memsall.insertRow(memsall.length);
 
   var cell1 = newRecord.insertCell(0);
   cell1.innerHTML = data.memberid;
@@ -115,12 +116,12 @@ function addMemberToTable(data) {
     '<a onclick="onMemberEdit(this)"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
   var cell5 = newRecord.insertCell(4);
   cell5.innerHTML =
-    '<a onclick="onByOne(this)"><i class="fa fa-search" aria-hidden="true"></i></a>';
+    '<a onclick="viewOne(this)"><i class="fa fa-search" aria-hidden="true"></i></a>';
 }
 
 function addByOneToTable(data) {
-  var allby = document.getElementById("allby").getElementsByTagName("tbody")[0];
-  var newRecord = allby.insertRow(allby.length);
+  var memall = document.getElementById("memall").getElementsByTagName("tbody")[0];
+  var newRecord = memall.insertRow(memall.length);
 
   var cell1 = newRecord.insertCell(0);
   cell1.innerHTML = data.memberid;
@@ -136,13 +137,12 @@ function onMemberEdit(td) {
   selectedRecordID = selectedRecord.cells[0].innerHTML;
   document.getElementById("name").value = selectedRecord.cells[1].innerHTML;
   document.getElementById("email").value = selectedRecord.cells[2].innerHTML;
-  document.getElementById("info3").style.display = "block";
 }
 
-function onByOne(td) {
+function viewOne(td) {
   selectedRecord = td.parentElement.parentElement;
   selectedRecordID = selectedRecord.cells[0].innerHTML;
-  getByOne(selectedRecordID);
+  viewByOne(selectedRecordID);
 }
 
 function clearSignUpForm() {
@@ -175,7 +175,7 @@ $(document).ready(function () {
   });
 });
 
-function getByOne(selectedRecordID) {
+function viewByOne(selectedRecordID) {
   $.ajax({
     type: "GET",
     url: baseUrl + "/borrow/member/" + selectedRecordID,
@@ -184,7 +184,7 @@ function getByOne(selectedRecordID) {
       if (!response.success) {
         alert(message);
       } else {
-        document.getElementById("allby").style.display = "block";
+        document.getElementById("memall").style.display = "block";
         $("#tbody").empty();
         var data = response.data;
         data.forEach((book) => {
