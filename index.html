@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Kigali Library</title>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a class="link" href="./index.html">Home</a></li>
+            <li><a class="link" href="./users.html">Users</a></li>
+            <li><a class="link" href="./signin.html">Sign In</a></li>
+            <li><a class="link" href="./signup.html">Sign Up</a></li>
+        </ul>
+    </nav>
+    <div class="switch">
+        <button id="bkbtn" onclick="showAdd()">Add Book</button>
+        <button id="btn" onclick="showBorrow()">Show Borrowings</button>
+    </div>
+    <div id="addbook">
+        <form onsubmit="event.preventDefault(); submitBook();">
+            <input type="text" name="title" placeholder="Book Title" id="title" required />
+            <input type="number" name="copies" placeholder="Copies" id="copies" required />
+            <input type="submit" value="Add Book">
+        </form>
+    </div>
+    <table id="allbks">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Book Title</th>
+                <th>Copies</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Borrow</th>
+            </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+    </table>
+    <div id="requestbook">
+        <span onclick="closeForm()" class="close">&times;</span>
+        <form id="reqf" onsubmit="event.preventDefault(); ReqBook();">
+            <input type="number" name="titleid" placeholder="Title ID" id="titleid" required /> <br>
+            <input type="number" name="memberid" placeholder="Your Member ID" id="memberid" required /> <br>
+            <input type="submit" value="Borrow Book">
+        </form>
+    </div>
+    <table id="allbrw">
+        <thead>
+            <tr>
+                <th>Borrow ID</th>
+                <th>Book Title</th>
+                <th>UserID</th>
+                <th>Return Date</th>
+                <th>Return</th>
+            </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+    </table>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./index.js"></script>
+    </script>
+</body>
+
+</html>
