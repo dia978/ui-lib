@@ -69,10 +69,6 @@ function signIn(data) {
         window.location.href = "./index.html";
       }
     },
-    error: function (response) {
-      console.log(response);
-      alert("Error");
-    },
   });
 }
 
